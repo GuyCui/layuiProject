@@ -1,0 +1,31 @@
+# 公共配置
+spring:
+  profiles:
+    active: dev
+    # 使用名为pro的配置，这里可以切换成dev
+  mvc:
+    view:
+      #加前缀
+      prefix: /
+    #加后缀
+      suffix: .html
+
+  jpa:
+    open-in-view: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://82.156.68.175:3306/blogs?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: cui!23
+---
+# 开发环境配置
+# springboot内嵌tomcat的端口号，和根目录
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  config:
+    activate:
+      on-profile: dev
+
